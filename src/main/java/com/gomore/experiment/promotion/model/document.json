@@ -1,0 +1,94 @@
+/*
+ *  示例促销单结构
+ * 
+ */
+{
+    "_id" : ObjectId("582086983f6c7cb156171d45"),
+    "_class" : "com.gomore.newretail.promotion.bill.enity.PromotionBill",
+    "createName" : "fyr001",
+    "createBy" : "0b44439e571a32fb01571d1599df0011",
+    "createDate" : ISODate("2016-11-07T21:50:16.788+08:00"),
+    "updateName" : "fyr001",
+    "updateBy" : "0b44439e571a32fb01571d1599df0011",
+    "updateDate" : ISODate("2016-11-07T21:50:16.789+08:00"),
+    "sysOrgCode" : "8a8a801355fc6e0c01560c149c051c9d",
+    "billNumber" : "20161107000005",
+    "subject" : "测试购物篮促销规则",
+    "state" : "submit",
+    "remark" : "测试购物篮促销规则",
+    "timeRange" : {
+        "begin" : ISODate("2016-11-07T21:50:16.788+08:00"),
+        "end" : ISODate("2016-11-07T21:50:46.788+08:00"),
+        "beginEqulas" : true,
+        "endEquals" : false
+    },
+    "storeRange" : {
+        "stores" : [ 
+            {
+                "uuid" : "8a8a801355fc6e0c01560c149c051c9d",
+                "code" : "demo2/",
+                "name" : "测试经销商"
+            }
+        ]
+    },
+    "exps" : [ 
+        {
+            "condition" : {
+                "_class" : "com.gomore.newretail.promotion.model.condition.basket.BasketCondition",
+                "conditions" : [ 
+                    {
+                        "conditions" : [ 
+                            {
+                                "goods" : {
+                                    "uuid" : "19b6ef702c8b11e6908700505684677f",
+                                    "code" : "OP.140048950",
+                                    "name" : "MX520-D0.5*96-SD-花颂-5700K+3000K"
+                                },
+                                "_class" : "com.gomore.newretail.promotion.model.condition.goods.GoodsCondition"
+                            }, 
+                            {
+                                "goods" : {
+                                    "uuid" : "19a87b202c8b11e6908700505684677f",
+                                    "code" : "OP.140048114",
+                                    "name" : "MD650-D0.5×120+0.2×120-TT幻彩明辉"
+                                },
+                                "_class" : "com.gomore.newretail.promotion.model.condition.goods.GoodsCondition"
+                            }, 
+                            {
+                                "goods" : {
+                                    "uuid" : "195210f72c8b11e6908700505684677f",
+                                    "code" : "OP.140052878",
+                                    "name" : "op-BO-LED74-企鹅"
+                                },
+                                "_class" : "com.gomore.newretail.promotion.model.condition.goods.GoodsCondition"
+                            }
+                        ],
+                        "logical" : "or",
+                        "_class" : "com.gomore.newretail.promotion.model.condition.CompositeCondition"
+                    }, 
+                    {
+                        "conditions" : [ 
+                            {
+                                "total" : "1",
+                                "comparison" : "gte",
+                                "_class" : "com.gomore.newretail.promotion.model.condition.AmountCondition"
+                            }
+                        ],
+                        "logical" : "and",
+                        "_class" : "com.gomore.newretail.promotion.model.condition.CompositeCondition"
+                    }
+                ],
+                "logical" : "and"
+            },
+            "actions" : [ 
+                {
+                    "total" : "1",
+                    "body" : "consumer",
+                    "priority" : 1,
+                    "_class" : "com.gomore.newretail.promotion.model.action.DeductionAction"
+                }
+            ],
+            "_class" : "com.gomore.newretail.promotion.model.exp.IfThenExpression"
+        }
+    ]
+}
